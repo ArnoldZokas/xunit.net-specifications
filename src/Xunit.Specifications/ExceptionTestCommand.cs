@@ -1,6 +1,6 @@
 //  #######################################################
 //  
-//  # Copyright (C) Arnold Zokas 2010
+//  # Copyright (C) 2010, Arnold Zokas
 //  
 //  # This source code is subject to terms and conditions of the New BSD License.
 //  # A copy of the license can be found in the license.txt file at the root of this distribution.
