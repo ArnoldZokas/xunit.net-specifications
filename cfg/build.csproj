@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<ProjectName>xUnit.net Specifications</ProjectName>
+		<CompilationMode>Release</CompilationMode>
+		<CompilationTargets>Rebuild</CompilationTargets>
+		<MajorVersion>0</MajorVersion>
+		<MinorVersion>1</MinorVersion>
+
+		<ProjectDirectory>$(MSBuildProjectDirectory)\..</ProjectDirectory>
+		<BuildTempDirectory>$(ProjectDirectory)\_build</BuildTempDirectory>
+		<PackageOutputDirectory>$(ProjectDirectory)\_output</PackageOutputDirectory>
+		<SolutionFile>$(ProjectDirectory)\src\Xunit.Specifications.sln</SolutionFile>
+		<AssemblyInfoFile>$(ProjectDirectory)\src\Xunit.Specifications\Properties\AssemblyInfo.cs</AssemblyInfoFile>
+
+		<GitExePath>C:\Program Files (x86)\Git\bin\git.exe</GitExePath>
+	</PropertyGroup>
+
+	<Import Project="$(ProjectDirectory)\lib\MSBuildCommunityTasks 1.2.0.306\MSBuild.Community.Tasks.Targets"/>
+
+	<ItemGroup>
+		<PackageContents Include="$(ProjectDirectory)\src\Xunit.Specifications\bin\Release\Xunit.Specifications.dll" />
+		<PackageContents Include="$(ProjectDirectory)\src\Xunit.Specifications\bin\Release\Xunit.Specifications.pdb" />
+		<PackageContents Include="$(ProjectDirectory)\license.txt" />
+		<ZipContents Include="$(BuildTempDirectory)\*.*" />
+	</ItemGroup>
+
+	<Target Name="Build" DependsOnTargets="_Clean;_Compile;_CopyFilesToBuildTempDirectory" />
+	<Target Name="Package" DependsOnTargets="_SetVersion;Build;_GenerateDeploymentPackage" />
+
+	<Target Name="_Clean">
+		<RemoveDir Directories="$(BuildTempDirectory)" Condition="!Exists($(BuildTempDirectory))" ContinueOnError="true" />
+		<MakeDir Directories="$(BuildTempDirectory)" />
+
+		<RemoveDir Directories="$(PackageOutputDirectory)" Condition="!Exists($(PackageOutputDirectory))" ContinueOnError="true" />
+		<MakeDir Directories="$(PackageOutputDirectory)" />
+	</Target>
+
+	<Target Name="_SetVersion">
+		<CreateProperty Value="$([System.DateTime]::UtcNow.ToString(`ddMMyy`))">
+			<Output PropertyName="BuildNumber" TaskParameter="Value" />
+		</CreateProperty>
+
+		<GitDescribe ProjectDirectory="$(ProjectDirectory)" GitExePath="$(GitExePath)">
+			<Output PropertyName="RevisionNumber" TaskParameter="RevisionNumber" />
+		</GitDescribe>
+
+		<CreateProperty Value="$(MajorVersion).$(MinorVersion).$(BuildNumber).$(RevisionNumber)">
+			<Output PropertyName="Version" TaskParameter="Value" />
+		</CreateProperty>
+
+		<AssemblyInfo
+			CodeLanguage="CS"
+			OutputFile="$(AssemblyInfoFile)"
+			AssemblyTitle="Xunit.Specifications"
+			AssemblyDescription="BDD extensions for xUnit.net"
+			AssemblyProduct="Xunit.Specifications"
+			AssemblyCopyright="Copyright © Arnold Zokas 2009"
+			ComVisible="false"
+			Guid="1344d0ac-5791-45bc-80aa-e66174717d50"
+			AssemblyVersion="$(Version)"
+			AssemblyFileVersion="$(Version)" />
+
+		<Message Text="Version is: $(Version)" Importance="high" />
+	</Target>
+
+	<Target Name="_Compile">
+		<MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(CompilationMode)" Targets="$(CompilationTargets)" BuildInParallel="true" />
+	</Target>
+
+	<Target Name="_CopyFilesToBuildTempDirectory">
+		<Copy SourceFiles="@(PackageContents)" DestinationFolder="$(BuildTempDirectory)" />
+	</Target>
+
+	<Target Name="_GenerateDeploymentPackage">
+		<Zip Files="@(ZipContents)" WorkingDirectory="$(BuildTempDirectory)" ZipFileName="$(PackageOutputDirectory)\$(ProjectName).zip" ZipLevel="9" />
+	</Target>
+
+	<UsingTask TaskName="GitDescribe" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" >
+
+		<ParameterGroup>
+			<ProjectDirectory ParameterType="System.String" Required="true" />
+			<GitExePath ParameterType="System.String" Required="true" />
+			<RevisionNumber Output="true" />
+		</ParameterGroup>
+
+		<Task>
+			<Using Namespace="System.Diagnostics" />
+			<Using Namespace="System.Text.RegularExpressions" />
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+					var p = new Process();
+					p.StartInfo.FileName = GitExePath;
+					p.StartInfo.Arguments = "describe";
+					p.StartInfo.WorkingDirectory = ProjectDirectory;
+					p.StartInfo.RedirectStandardOutput = true;
+					p.StartInfo.CreateNoWindow = true;
+					p.StartInfo.UseShellExecute = false;
+					
+					p.Start();	// NOTE: Error output stream is not redirected, so you will not see errors if there are any
+					var output = p.StandardOutput.ReadToEnd();
+					p.WaitForExit();
+		
+					if(!output.Contains("-"))
+						RevisionNumber = "0";	// no commits were made since tag was created, so return 0 as the revision number
+					else
+					{
+						var revisionNumberRegex = "(.*?-)(?<revision>\\d{1,4})(.*)";
+						RevisionNumber = Regex.Match(output, revisionNumberRegex, RegexOptions.IgnoreCase).Groups["revision"].Value;
+					}
+				]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+</Project>
