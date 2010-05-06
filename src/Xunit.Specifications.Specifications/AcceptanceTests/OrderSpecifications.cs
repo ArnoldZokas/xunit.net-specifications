@@ -22,9 +22,9 @@ namespace Xunit.Specifications.Specifications.AcceptanceTests
 
 			"Given a new order".Context(() => order = new Order());
 
-			"when an order line is added".Do(() => order.AddOrderLine(null));
+			"with 1 order line added".Do(() => order.AddOrderLine(null));
 
-			"order lines should contain 1 item".Assert(() => Assert.Equal(1, order.OrderLines.Count));
+			"order should contain 1 order line".Assert(() => Assert.Equal(1, order.OrderLines.Count));
 		}
 
 		#region Nested type: Order
@@ -43,6 +43,7 @@ namespace Xunit.Specifications.Specifications.AcceptanceTests
 				OrderLines.Add(value);
 			}
 		}
+
 
 		#endregion
 	}
