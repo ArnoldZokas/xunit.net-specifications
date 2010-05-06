@@ -24,6 +24,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Configuration", "Buil
 		..\cfg\package.bat = ..\cfg\package.bat
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{0ACAFBA5-47DB-4ADB-894D-AC1C61CD5312}"
+	ProjectSection(SolutionItems) = preProject
+		..\cfg\Targets\Common.targets = ..\cfg\Targets\Common.targets
+		..\cfg\Targets\Get32BitProgramFilesDirectory.task = ..\cfg\Targets\Get32BitProgramFilesDirectory.task
+		..\cfg\Targets\GitDescribe.task = ..\cfg\Targets\GitDescribe.task
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +51,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{03BD6BA5-D715-43F9-AFBF-6592F34534E0} = {A284D652-D4E7-45FE-81C5-3E1F950E5185}
+		{0ACAFBA5-47DB-4ADB-894D-AC1C61CD5312} = {0D6CC2B8-0EB4-46B2-B8B3-F6BEA9401D72}
 	EndGlobalSection
 EndGlobal
