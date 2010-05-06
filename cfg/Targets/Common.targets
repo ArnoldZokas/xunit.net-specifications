@@ -15,10 +15,10 @@
 		</CreateProperty>
 
 		<Message Text="[GitExePath] property not set. Attempting automatic Git path discovery..." Importance="high" Condition="!Exists($(GitExePath))" />
-		<Get32BitProgramFilesDirectory>
+		<Get32BitProgramFilesDirectory Condition="!Exists($(GitExePath))">
 			<Output PropertyName="ProgramFilesDirectoryPath" TaskParameter="DirectoryPath" />
 		</Get32BitProgramFilesDirectory>
-		<CreateProperty Value="$(ProgramFilesDirectoryPath)\Git\bin\git.exe">
+		<CreateProperty Value="$(ProgramFilesDirectoryPath)\Git\bin\git.exe" Condition="!Exists($(GitExePath))">
 			<Output PropertyName="GitExePath" TaskParameter="Value" />
 		</CreateProperty>
 		<Message Text="Using Git.exe found at path [$(GitExePath)]" Importance="high" Condition="Exists($(GitExePath))" />
