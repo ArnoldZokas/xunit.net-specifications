@@ -31,7 +31,7 @@
 		<AssemblyInfoFiles Include="$(ProjectDirectory)\src\Xunit.Specifications\Properties\AssemblyInfo.cs">
 			<Title>$(ProjectName)</Title>
 			<Description>BDD extensions for xUnit.net</Description>
-			<Copyright>Copyright © Arnold Zokas 2009</Copyright>
+			<Copyright>Copyright © 2010 Arnold Zokas</Copyright>
 			<Guid>1344d0ac-5791-45bc-80aa-e66174717d50</Guid>
 		</AssemblyInfoFiles>
 
