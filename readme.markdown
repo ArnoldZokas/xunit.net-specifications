@@ -38,6 +38,7 @@ Here's a sample specification:
 ## 3. Build Instructions ##
 
 To build this project on your machine, run batch file <strong>./cfg/build.bat</strong>.
+
 Build output is automatically placed into directory <strong>./_build/</strong>.
 
 ## 4. Related Links ##

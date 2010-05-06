@@ -42,10 +42,12 @@
 		<BuildArtifacts Include="$(ProjectDirectory)\src\Xunit.Specifications\bin\$(BuildConfiguration)\Xunit.Specifications.dll" />
 		<BuildArtifacts Include="$(ProjectDirectory)\src\Xunit.Specifications\bin\$(BuildConfiguration)\Xunit.Specifications.pdb" />
 		<BuildArtifacts Include="$(ProjectDirectory)\license.txt" />
-		
+		<BuildArtifacts Include="$(ProjectDirectory)\ArnoldZokas's xUnit.net-Specifications at master - GitHub.url" />
+
 		<PackageContents Include="$(BuildTempDirectory)\Xunit.Specifications.dll" />
 		<PackageContents Include="$(BuildTempDirectory)\Xunit.Specifications.pdb" />
 		<PackageContents Include="$(BuildTempDirectory)\license.txt" />
+		<PackageContents Include="$(BuildTempDirectory)\ArnoldZokas's xUnit.net-Specifications at master - GitHub.url" />
 	</ItemGroup>
 
 	<Target Name="Build" DependsOnTargets="_Clean;_Compile;_CopyFilesToBuildTempDirectory" />
