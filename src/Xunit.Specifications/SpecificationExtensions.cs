@@ -15,11 +15,6 @@ namespace Xunit.Specifications
 {
 	public static class SpecificationExtensions
 	{
-		public static void Context(this string message)
-		{
-			SpecificationContext.Context(message);
-		}
-
 		public static void Context(this string message, Action arrange)
 		{
 			SpecificationContext.Context(message, arrange);
