@@ -35,17 +35,22 @@ Here's a sample specification:
         }
     }
 
-## 3. Related Links ##
+## 3. Build Instructions ##
+
+To build this project on your machine, run batch file <strong>./cfg/build.bat</strong>.
+Build output is automatically placed into directory <strong>./_build/</strong>.
+
+## 4. Related Links ##
 
 + You can download the latest version of xUnit.net from <a href="http://xunit.codeplex.com/releases/view/31606">http://xunit.codeplex.com/releases/view/31606</a>
 + You can read Phil Haack's original blog post at <a href="http://haacked.com/archive/2008/08/24/introducing-subspec.aspx">http://haacked.com/archive/2008/08/24/introducing-subspec.aspx</a>
 
-## 4. Acknowledgements ##
+## 5. Acknowledgements ##
 
 Thanks to Phil Haack coming up with this unit test syntax and posting about it on his blog.<br />
 Thanks to Brad Wilson for writing the original implementation.
 
-## 5. License ##
+## 6. License ##
 
 Copyright (c) 2010, Arnold Zokas<br /><br />
 This source code is subject to terms and conditions of the New BSD License.<br />
