@@ -5,23 +5,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xunit.Specifications", "xun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xunit.Specifications.Specifications", "Xunit.Specifications.Specifications\Xunit.Specifications.Specifications.csproj", "{03BD6BA5-D715-43F9-AFBF-6592F34534E0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F11AD1B9-AD1F-4A7C-9122-59532428929B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{F11AD1B9-AD1F-4A7C-9122-59532428929B}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
 		..\license.txt = ..\license.txt
 		..\readme.markdown = ..\readme.markdown
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specifications", "Specifications", "{A284D652-D4E7-45FE-81C5-3E1F950E5185}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Configuration", "Build Configuration", "{0D6CC2B8-0EB4-46B2-B8B3-F6BEA9401D72}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Build Configuration", "_Build Configuration", "{0D6CC2B8-0EB4-46B2-B8B3-F6BEA9401D72}"
 	ProjectSection(SolutionItems) = preProject
 		..\cfg\build.bat = ..\cfg\build.bat
 		..\cfg\build.csproj = ..\cfg\build.csproj
-		..\cfg\Targets\Common.targets = ..\cfg\Targets\Common.targets
-		..\cfg\Targets\Get32BitProgramFilesDirectory.task = ..\cfg\Targets\Get32BitProgramFilesDirectory.task
-		..\cfg\Targets\GitDescribe.task = ..\cfg\Targets\GitDescribe.task
 		..\cfg\package.bat = ..\cfg\package.bat
+		..\cfg\test.bat = ..\cfg\test.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{0ACAFBA5-47DB-4ADB-894D-AC1C61CD5312}"
@@ -50,7 +46,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{03BD6BA5-D715-43F9-AFBF-6592F34534E0} = {A284D652-D4E7-45FE-81C5-3E1F950E5185}
 		{0ACAFBA5-47DB-4ADB-894D-AC1C61CD5312} = {0D6CC2B8-0EB4-46B2-B8B3-F6BEA9401D72}
 	EndGlobalSection
 EndGlobal
