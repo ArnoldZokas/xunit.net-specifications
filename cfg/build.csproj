@@ -8,6 +8,7 @@
 		<BuildTargets>Rebuild</BuildTargets>
 		<MajorVersion>1</MajorVersion>
 		<MinorVersion>0</MinorVersion>
+		<InformationalVersion></InformationalVersion>
 
 		<!--Directory Paths-->
 		<ProjectDirectory>$(MSBuildProjectDirectory)\..</ProjectDirectory>
@@ -51,6 +52,7 @@
 	</ItemGroup>
 
 	<Target Name="Build" DependsOnTargets="_Clean;_Compile;_CopyFilesToBuildTempDirectory" />
+	<Target Name="Test" DependsOnTargets="_Clean;_Compile;_Test;_CopyFilesToBuildTempDirectory" />
 	<Target Name="Package" DependsOnTargets="_SetVersion;Build;_Test;_GenerateDeploymentPackage" />
 
 </Project>
