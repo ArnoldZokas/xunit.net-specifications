@@ -7,7 +7,7 @@
 		<BuildConfiguration>Release</BuildConfiguration>
 		<BuildTargets>Rebuild</BuildTargets>
 		<MajorVersion>1</MajorVersion>
-		<MinorVersion>0</MinorVersion>
+		<MinorVersion>1</MinorVersion>
 		<InformationalVersion></InformationalVersion>
 
 		<!--Directory Paths-->
@@ -43,11 +43,13 @@
 		<BuildArtifacts Include="$(ProjectDirectory)\src\Xunit.Specifications\bin\$(BuildConfiguration)\Xunit.Specifications.dll" />
 		<BuildArtifacts Include="$(ProjectDirectory)\src\Xunit.Specifications\bin\$(BuildConfiguration)\Xunit.Specifications.pdb" />
 		<BuildArtifacts Include="$(ProjectDirectory)\license.txt" />
+		<BuildArtifacts Include="$(ProjectDirectory)\Changelog.txt" />
 		<BuildArtifacts Include="$(ProjectDirectory)\ArnoldZokas's xUnit.net-Specifications at master - GitHub.url" />
 
 		<PackageContents Include="$(BuildTempDirectory)\Xunit.Specifications.dll" />
 		<PackageContents Include="$(BuildTempDirectory)\Xunit.Specifications.pdb" />
 		<PackageContents Include="$(BuildTempDirectory)\license.txt" />
+		<PackageContents Include="$(BuildTempDirectory)\Changelog.txt" />
 		<PackageContents Include="$(BuildTempDirectory)\ArnoldZokas's xUnit.net-Specifications at master - GitHub.url" />
 	</ItemGroup>
 
