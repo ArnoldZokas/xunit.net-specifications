@@ -28,6 +28,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{0ACA
 		..\cfg\Targets\GitDescribe.task = ..\cfg\Targets\GitDescribe.task
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{0C5AA821-FE22-4948-A407-84BF8043E39B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xunit.Specifications.Samples", "Xunit.Specifications.Samples\Xunit.Specifications.Samples.csproj", "{09E1DB7E-2C90-482E-9392-50D2F254CF67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,11 +46,16 @@ Global
 		{03BD6BA5-D715-43F9-AFBF-6592F34534E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03BD6BA5-D715-43F9-AFBF-6592F34534E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03BD6BA5-D715-43F9-AFBF-6592F34534E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E1DB7E-2C90-482E-9392-50D2F254CF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E1DB7E-2C90-482E-9392-50D2F254CF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E1DB7E-2C90-482E-9392-50D2F254CF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E1DB7E-2C90-482E-9392-50D2F254CF67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0ACAFBA5-47DB-4ADB-894D-AC1C61CD5312} = {0D6CC2B8-0EB4-46B2-B8B3-F6BEA9401D72}
+		{09E1DB7E-2C90-482E-9392-50D2F254CF67} = {0C5AA821-FE22-4948-A407-84BF8043E39B}
 	EndGlobalSection
 EndGlobal
