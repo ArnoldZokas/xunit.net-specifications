@@ -1,0 +1,6 @@
+# Global file excludes
+*.suo
+*.user
+
+# Global directory excludes
+_ReSharper*
