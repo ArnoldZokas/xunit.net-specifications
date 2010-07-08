@@ -1,5 +1,9 @@
 CHANGE LOG
 
+== v1.2 (8 July 2010)
+
+ -	Updated to xUnit.net 1.6.1 to enable .NET 4.0 support
+
 == v1.1 (17 May 2010)
 
  -	Added a Context extension method overload that does not require a setup System.Action to be passed:		static void Context(this string message);
