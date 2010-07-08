@@ -33,11 +33,6 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="xunit">
-      <HintPath>..\..\lib\xUnit.net 1.5\xunit.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="AssertExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -49,6 +44,9 @@
       <Project>{3C9335DF-3E2B-428F-86D7-2A4B58B27F0A}</Project>
       <Name>Xunit.Specifications</Name>
     </ProjectReference>
+    <Reference Include="xunit">
+      <HintPath>..\..\lib\xUnit.net 1.6.1\xunit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -38,6 +38,11 @@ namespace Xunit.Specifications
 			get { return false; }
 		}
 
+		public int Timeout
+		{
+			get { return 0; }
+		}
+
 		public MethodResult Execute(object testClass)
 		{
 			return new FailedResult(_method, _exception, Name);

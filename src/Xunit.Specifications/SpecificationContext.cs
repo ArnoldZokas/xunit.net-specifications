@@ -174,6 +174,11 @@ namespace Xunit.Specifications
 				get { return false; }
 			}
 
+			public int Timeout
+			{
+				get { return 0; }
+			}
+
 			public MethodResult Execute(object testClass)
 			{
 				foreach (var action in _actions)

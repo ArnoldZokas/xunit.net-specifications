@@ -16,7 +16,7 @@
 		<PackageOutputDirectory>$(ProjectDirectory)\_output</PackageOutputDirectory>
 
 		<!--Tools-->
-		<xUnitExePath>$(ProjectDirectory)\lib\xUnit.net 1.5\xunit.console.exe</xUnitExePath>
+		<xUnitExePath>$(ProjectDirectory)\lib\xUnit.net 1.6.1\xunit.console.exe</xUnitExePath>
 		
 		<!--Set the property below if automatic Git path discovery fails-->
 		<!--<GitExePath>C:\Program Files (x86)\Git\bin\git.exe</GitExePath>-->

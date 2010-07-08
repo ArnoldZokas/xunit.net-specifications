@@ -51,7 +51,7 @@
     </Reference>
     <Reference Include="System.XML" />
     <Reference Include="xunit">
-      <HintPath>..\..\lib\xUnit.net 1.5\xunit.dll</HintPath>
+      <HintPath>..\..\lib\xUnit.net 1.6.1\xunit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

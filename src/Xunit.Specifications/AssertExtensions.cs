@@ -9,6 +9,7 @@
 // # You must not remove this notice, or any other, from this software.
 // 
 // #######################################################
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -70,12 +71,12 @@ namespace Xunit.Specifications
 
 		#region ShouldBeInRange<T>
 
-		public static void ShouldBeInRange<T>(this T actual, T low, T high)
+		public static void ShouldBeInRange<T>(this T actual, T low, T high) where T : IComparable
 		{
 			Assert.InRange(actual, low, high);
 		}
 
-		public static void ShouldNotBeInRange<T>(this T actual, T low, T high)
+		public static void ShouldNotBeInRange<T>(this T actual, T low, T high) where T : IComparable
 		{
 			Assert.NotInRange(actual, low, high);
 		}
