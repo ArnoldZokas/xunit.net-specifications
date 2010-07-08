@@ -20,6 +20,7 @@
 		
 		<!--Set the property below if automatic Git path discovery fails-->
 		<!--<GitExePath>C:\Program Files (x86)\Git\bin\git.exe</GitExePath>-->
+		<RevertLocalChanges>true</RevertLocalChanges>
 	</PropertyGroup>
 
 	<Import Project="$(ProjectDirectory)\lib\MSBuildCommunityTasks 1.2.0.306\MSBuild.Community.Tasks.Targets"/>
@@ -29,14 +30,9 @@
 		<WorkingDirectories Include="$(BuildTempDirectory)" />
 		<WorkingDirectories Include="$(PackageOutputDirectory)" />
 
-		<AssemblyInfoFiles Include="$(ProjectDirectory)\src\Xunit.Specifications\Properties\AssemblyInfo.cs">
-			<Title>$(ProjectName)</Title>
-			<Description>BDD extensions for xUnit.net</Description>
-			<Copyright>Copyright © 2010 Arnold Zokas</Copyright>
-			<Guid>1344d0ac-5791-45bc-80aa-e66174717d50</Guid>
-		</AssemblyInfoFiles>
-
 		<Solution Include="$(ProjectDirectory)\src\Xunit.Specifications.sln" />
+
+		<GlobalAssemblyInfo Include="$(ProjectDirectory)\src\GlobalAssemblyInfo.cs" />
 		
 		<Specifications Include="$(ProjectDirectory)\src\Xunit.Specifications.Specifications\bin\$(BuildConfiguration)\Xunit.Specifications.Specifications.dll" />
 		
@@ -55,6 +51,6 @@
 
 	<Target Name="Build" DependsOnTargets="_Clean;_Compile;_CopyFilesToBuildTempDirectory" />
 	<Target Name="Test" DependsOnTargets="_Clean;_Compile;_Test;_CopyFilesToBuildTempDirectory" />
-	<Target Name="Package" DependsOnTargets="_SetVersion;Build;_Test;_GenerateDeploymentPackage" />
+	<Target Name="Package" DependsOnTargets="_SetVersion;Build;_Test;_GenerateDeploymentPackage;_RevertLocalChanges" />
 
 </Project>
