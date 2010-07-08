@@ -1,4 +1,4 @@
-﻿// #######################################################
+// #######################################################
 // 
 // # Copyright (C) 2010, Arnold Zokas
 // 
@@ -9,11 +9,3 @@
 // # You must not remove this notice, or any other, from this software.
 // 
 // #######################################################
-using System.Reflection;
-using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("Coderoom.Specifications.Specifications")]
-[assembly: AssemblyDescription("Coderoom.Specifications.Specifications")]
-[assembly: AssemblyCopyright("Copyright © 2010, Arnold Zokas")]
-[assembly: Guid("4ebcec6e-cd5b-48d8-9e02-98cc0308d7e2")]
-[assembly: ComVisible(false)]

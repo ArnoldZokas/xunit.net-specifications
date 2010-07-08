@@ -9,3 +9,11 @@
 // # You must not remove this notice, or any other, from this software.
 // 
 // #######################################################
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+[assembly: AssemblyTitle("Coderoom.Specifications.Samples")]
+[assembly: AssemblyDescription("Coderoom.Specifications.Samples")]
+[assembly: AssemblyCopyright("Copyright © 2010, Arnold Zokas")]
+[assembly: Guid("c2d0e057-77b1-4e33-a31e-f37834c2eda9")]
+[assembly: ComVisible(false)]
