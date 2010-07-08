@@ -7,7 +7,7 @@
 		<BuildConfiguration>Release</BuildConfiguration>
 		<BuildTargets>Rebuild</BuildTargets>
 		<MajorVersion>1</MajorVersion>
-		<MinorVersion>1</MinorVersion>
+		<MinorVersion>2</MinorVersion>
 		<InformationalVersion></InformationalVersion>
 
 		<!--Directory Paths-->
