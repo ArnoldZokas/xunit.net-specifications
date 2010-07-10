@@ -11,9 +11,57 @@
 	<div id="wrapper">
 		<div id="content">
 			<h1>Quick Start</h1>
+			<ol>
+				<li>Create a new test project in your solution.<br />Call it <em>ProjectName</em>Specifications (where <em>ProjectName</em> is the name of the project you want to test).</li>
+				<li>Download the <a href="http://xunit.codeplex.com/releases/view/48360" target="_blank">latest release of xUnit.net</a> and add a reference to xunit.dll in you test project.</li>
+				<li>Download the <a href="http://github.com/ArnoldZokas/xUnit.net-Specifications/downloads" target="_blank">latest release of xUnit.net Specifications</a> and add a reference to Xunit.Specifications.dll in you test project.</li>
+				<li>Create a new class file in your test project. Call it ShoppingCartSpecifications.</li>
+				<li>
+					Paste the following code into ShoppingCartSpecifications class:
+				<pre>
+[Specification]
+public void AddItemSpecifications()
+{
+	ShoppingCart cart = null;
+	"Given new ShoppingCart".Context(() => cart = new ShoppingCart());
+
+	"when \"Cake\" item is added".Do(() => cart.AddItem("Cake"));
+
+	"number of Items is 1".Assert(() => cart.Items.Count.ShouldEqual(1));
+	"first Item is \"Cake\"".Assert(() => cart.Items.First().ShouldEqual("Cake"));
+}
+
+// this class is just used as an example
+public class ShoppingCart
+{
+	public ShoppingCart()
+	{
+		Items = new List&lt;string>();
+	}
+
+	public List&lt;string> Items { get; private set; }
+
+	public void AddItem(string product)
+	{
+		Items.Add(product);
+	}
+}				</pre>
+				</li>
+				<li>Congratulations! You have created your first specification. Not try creating specifications for <strong>your</strong> code...</li>
+				<li>
+					When you run xUnit.net console runner with html report output enabled you should see a test report such as this:
+					<img src="assets/images/quickstart-html-report.png" alt="xUnit.net html test report" />
+				</li>
+			</ol>
+			<h2>Syntax</h2>
 			<p>
-				Working on it...
+				TODO
 			</p>
+			<h2>Notes</h2>
+			<ul>
+				<li>Consider calling your test assembly <em>ProjectName</em>.Specifications (e.g. tests for project "Coderoom" would reside in project called "Coderoom.Specifications")</li>
+				<li>Consider using one file for each <em>type</em> you are testing and calling it <em>TypeName</em>Specifications (e.g. specifications for class "Order" would reside in class "OrderSpecifications")</li>
+			</ul>
 		</div>
 	</div>
 	

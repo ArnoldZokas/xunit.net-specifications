@@ -18,7 +18,10 @@ body	{ border:0.1em solid #ccc; margin:0 auto; width:80em; }
 	#content a				{ color:#cd3333; }
 	#content a:hover		{ color:#660000; }
 	#content img			{ float:left; padding:0 1em 1em 0; }
-	#content ul				{ font-size:1.2em; }
+	#content ol,
+	#content ul				{ font-size:1.2em; line-height:1.5em; }
+	#content img			{ border:solid 0.1em #333; margin:1em 0; }
+	#content pre			{ background:#eee; font-family:Consolas,Lucida Console,Monospace; padding:1em; }
 
 #footer						{ border-top:0.1em solid #ccc; padding:1em; }
 	#footer	ul				{ padding-left:0; margin-top:0; }
