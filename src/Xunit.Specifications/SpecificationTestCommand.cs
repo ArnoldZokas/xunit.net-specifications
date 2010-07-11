@@ -15,37 +15,37 @@ using Xunit.Sdk;
 
 namespace Xunit.Specifications
 {
-	public class ExceptionTestCommand : ITestCommand
+	// TODO: implement and test
+	internal class SpecificationTestCommand : ITestCommand
 	{
-		private readonly Exception _exception;
 		private readonly IMethodInfo _method;
 
-		public ExceptionTestCommand(IMethodInfo method, Exception exception)
+		public SpecificationTestCommand(IMethodInfo method)
 		{
 			_method = method;
-			_exception = exception;
-		}
-
-		public string Name
-		{
-			get { return null; }
 		}
 
 		#region ITestCommand Members
 
-		public bool ShouldCreateInstance
-		{
-			get { return false; }
-		}
-
-		public int Timeout
-		{
-			get { return 0; }
-		}
-
 		public MethodResult Execute(object testClass)
 		{
-			return new FailedResult(_method, _exception, Name);
+			// TODO: implement
+			return new PassedResult(_method, "TEST");
+		}
+
+		public XmlNode ToStartXml()
+		{
+			// TODO: test
+
+			var doc = new XmlDocument();
+			doc.LoadXml("<dummy/>");
+			XmlNode testNode = XmlUtility.AddElement(doc.ChildNodes[0], "start");
+
+			XmlUtility.AddAttribute(testNode, "name", "TEST");
+			XmlUtility.AddAttribute(testNode, "type", _method.TypeName);
+			XmlUtility.AddAttribute(testNode, "method", _method.Name);
+
+			return testNode;
 		}
 
 		public string DisplayName
@@ -53,20 +53,14 @@ namespace Xunit.Specifications
 			get { throw new NotImplementedException(); }
 		}
 
-		public virtual XmlNode ToStartXml()
+		public bool ShouldCreateInstance
 		{
-			var doc = new XmlDocument();
-			doc.LoadXml("<dummy/>");
-			XmlNode testNode = XmlUtility.AddElement(doc.ChildNodes[0], "start");
+			get { return false; }	// TODO: test
+		}
 
-			string typeName = _method.TypeName;
-			string methodName = _method.Name;
-
-			XmlUtility.AddAttribute(testNode, "name", typeName + "." + methodName);
-			XmlUtility.AddAttribute(testNode, "type", typeName);
-			XmlUtility.AddAttribute(testNode, "method", methodName);
-
-			return testNode;
+		public int Timeout
+		{
+			get { return 0; }	// TODO: test
 		}
 
 		#endregion

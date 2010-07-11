@@ -36,7 +36,11 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AssertExtensions.cs" />
+    <Compile Include="AssertExtensionSpecifications.cs" />
+    <Compile Include="SpecificationAttributeTests.cs" />
+    <Compile Include="SpecificationContextExtensionsTests.cs" />
+    <Compile Include="SpecificationContextTests.cs" />
+    <Compile Include="_AssertExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +51,7 @@
       <Project>{3C9335DF-3E2B-428F-86D7-2A4B58B27F0A}</Project>
       <Name>Xunit.Specifications</Name>
     </ProjectReference>
+    <Reference Include="System.XML" />
     <Reference Include="xunit">
       <HintPath>..\..\lib\xUnit.net 1.6.1\xunit.dll</HintPath>
     </Reference>

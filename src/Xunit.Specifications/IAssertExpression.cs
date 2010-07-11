@@ -1,4 +1,4 @@
-// #######################################################
+﻿// #######################################################
 // 
 // # Copyright (C) 2010, Arnold Zokas
 // 
@@ -9,13 +9,11 @@
 // # You must not remove this notice, or any other, from this software.
 // 
 // #######################################################
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("Coderoom.Specifications")]
-[assembly: AssemblyDescription("Coderoom.Specifications")]
-[assembly: AssemblyCopyright("Copyright © 2010, Arnold Zokas")]
-[assembly: Guid("ca6fd36f-f563-4538-9d99-62d15db495c2")]
-[assembly: ComVisible(false)]
-[assembly: InternalsVisibleTo("Xunit.Specifications.Specifications")]
+namespace Xunit.Specifications
+{
+	internal interface IAssertExpression
+	{
+		string Message { get; }
+		object TestExpression { get; }
+	}
+}

@@ -1,4 +1,4 @@
-﻿// #######################################################
+// #######################################################
 // 
 // # Copyright (C) 2010, Arnold Zokas
 // 
@@ -9,27 +9,22 @@
 // # You must not remove this notice, or any other, from this software.
 // 
 // #######################################################
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit.Sdk;
 
 namespace Xunit.Specifications
 {
-	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
 	public class SpecificationAttribute : FactAttribute
 	{
 		protected override IEnumerable<ITestCommand> EnumerateTestCommands(IMethodInfo method)
 		{
-			try
-			{
-				object obj = method.CreateInstance();
-				method.Invoke(obj, null);
-				return SpecificationContext.ToTestCommands(method);
-			}
-			catch (Exception ex)
-			{
-				return new ITestCommand[] {new ExceptionTestCommand(method, ex)};
-			}
+			// TODO: test this
+			// This executes method decorated with Specification attribute
+			object obj = method.CreateInstance();
+			method.Invoke(obj, null);
+
+			return RuntimeContext.CurrentSpecificationContext.AssertExpressions.Select(assertExpression => new SpecificationTestCommand(method)).Cast<ITestCommand>();
 		}
 	}
 }

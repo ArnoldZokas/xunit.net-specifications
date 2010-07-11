@@ -13,31 +13,19 @@ using System;
 
 namespace Xunit.Specifications
 {
-	public static class SpecificationExtensions
+	internal sealed class AssertExpression<T> : IAssertExpression
 	{
-		public static void Context(this string message)
+		internal AssertExpression(string message, Action<T> testExpression)
 		{
-			Context(message, null);
+			Message = message;
+			TestExpression = testExpression;
 		}
 
-		public static void Context(this string message, Action arrange)
-		{
-			SpecificationContext.Context(message, arrange);
-		}
+		#region IAssertExpression Members
 
-		public static void Do(this string message, Action act)
-		{
-			SpecificationContext.Do(message, act);
-		}
+		public string Message { get; private set; }
+		public object TestExpression { get; set; }
 
-		public static void Assert(this string message, Action assert)
-		{
-			SpecificationContext.Assert(message, assert);
-		}
-
-		public static void AssertThrows<TException>(this string message, Assert.ThrowsDelegate assert) where TException : Exception
-		{
-			SpecificationContext.Assert(message, () => Xunit.Assert.Throws<TException>(assert));
-		}
+		#endregion
 	}
 }

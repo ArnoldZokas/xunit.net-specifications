@@ -9,13 +9,21 @@
 // # You must not remove this notice, or any other, from this software.
 // 
 // #######################################################
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+using System;
 
-[assembly: AssemblyTitle("Coderoom.Specifications")]
-[assembly: AssemblyDescription("Coderoom.Specifications")]
-[assembly: AssemblyCopyright("Copyright © 2010, Arnold Zokas")]
-[assembly: Guid("ca6fd36f-f563-4538-9d99-62d15db495c2")]
-[assembly: ComVisible(false)]
-[assembly: InternalsVisibleTo("Xunit.Specifications.Specifications")]
+namespace Xunit.Specifications
+{
+	public static class SpecificationContextExtensions
+	{
+		public static SpecificationContext<T> Context<T>(this string message, Func<T> initialisationExpression)
+		{
+			// TODO: Validate message
+			// TODO: Validate initialisationExpression
+
+			var specificationContext = new SpecificationContext<T>(message, initialisationExpression);
+			RuntimeContext.CurrentSpecificationContext = specificationContext;
+
+			return specificationContext;
+		}
+	}
+}
